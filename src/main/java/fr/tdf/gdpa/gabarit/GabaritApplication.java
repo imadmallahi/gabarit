@@ -30,7 +30,7 @@ public class GabaritApplication implements CommandLineRunner  {
 
 		projetRepository.save(projet);
 
-		excelReader.readExcelFile("/Users/macbook/Downloads/gabarit/src/main/resources/static/Test.xls");
+		//excelReader.readExcelFile("/Users/macbook/Downloads/gabarit/src/main/resources/static/Test.xls");
 	}
 
 }

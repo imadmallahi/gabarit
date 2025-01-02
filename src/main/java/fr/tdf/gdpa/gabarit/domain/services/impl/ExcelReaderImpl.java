@@ -21,13 +21,13 @@ import org.springframework.stereotype.Service;
 public class ExcelReaderImpl implements ExcelReader {
 
     @Override
-    public List<ProjetDom> readExcelFile(String filePath) throws IOException {
-            File file = new File(filePath);
+    public List<ProjetDom> readExcelFile(File file) {
+
             try (FileInputStream fis = new FileInputStream(file)) {
                 Workbook workbook;
-                if (filePath.endsWith(".xlsx")) {
+                if (file.getName().endsWith(".xlsx")) {
                     workbook = new XSSFWorkbook(fis);
-                } else if (filePath.endsWith(".xls")) {
+                } else if (file.getName().endsWith(".xls")) {
                     workbook = new HSSFWorkbook(fis);
                 } else {
                     throw new IllegalArgumentException("The specified file is not an Excel file");
@@ -69,6 +69,10 @@ public class ExcelReaderImpl implements ExcelReader {
                         System.out.println();
                     }
                 }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
 
         return null;
