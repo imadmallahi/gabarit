@@ -1,6 +1,7 @@
 package fr.tdf.gdpa.gabarit;
 
 import fr.tdf.gdpa.gabarit.domain.services.ExcelReader;
+import fr.tdf.gdpa.gabarit.infra.entities.Activite;
 import fr.tdf.gdpa.gabarit.infra.entities.Projet;
 import fr.tdf.gdpa.gabarit.infra.repository.ProjetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,12 @@ public class GabaritApplication implements CommandLineRunner  {
 	@Override
 	public void run(String... args) throws Exception {
 		Projet projet = new Projet();
-		projet.setId(1L);
+		//projet.setId(1L);
+		Activite activite = new Activite();
+		activite.setId("1");
+		activite.setActeur("Imad");
+		projet.getActivites().add(activite);
+
 
 		projetRepository.save(projet);
 

@@ -1,20 +1,17 @@
-package fr.tdf.gdpa.gabarit.infra.entities;
+package fr.tdf.gdpa.gabarit.domain.models;
 
-import fr.tdf.gdpa.gabarit.infra.enumuration.TypeTacheEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "activite")
-public  class Activite  {
+public class ActiviteDom {
 
     @Id
-    private String id;
+    private Long id;
     private String ordrePresentation;
     private String nomCourt;
     private String NomTache;

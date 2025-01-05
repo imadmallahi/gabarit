@@ -1,9 +1,16 @@
 package fr.tdf.gdpa.gabarit.app.dto;
 
+import fr.tdf.gdpa.gabarit.infra.entities.Activite;
 import fr.tdf.gdpa.gabarit.infra.enumuration.TypeTacheEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+
+import java.util.Base64;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -11,19 +18,10 @@ import lombok.NoArgsConstructor;
 
 public class ProjetDto {
 
-    private Long id;
-    private Long ordrePresentation;
-    private String nomCourt;
-    private String NomTache;
-    private String nomTachePortail ;
-    private TypeTacheEnum typeTache;
-    private String rattacheJalon ;
-    private String responsable ;
-    private String acteur ;
-    private String precedentJalon ;
-    private Long delaisSimple ;
-    private Long delaisComplexe ;
-    private String tacheFermer ;
-    private String jalonActive;
-    private String typeActivite;
+    @Id
+    private ObjectId id;
+    private String nomProjet ;
+    private String file;
+    private List<Activite> activites;
+    private Date creationDate;
 }
